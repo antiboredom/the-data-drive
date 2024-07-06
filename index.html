@@ -1,0 +1,519 @@
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" href="style.css" type="text/css" />
+  <script type="text/javascript" charset="utf-8" src="js/jquery-2.1.4.min.js"></script>
+  <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.5.0.min.js"></script>
+  <script type="text/javascript" charset="utf-8" src="js/imageMapResizer.min.js"></script>
+  <script type="text/javascript" charset="utf-8" src="js/jquery-sticky.js"></script>
+  <script type="text/javascript" charset="utf-8" src="js/js.cookie-2.0.3.min.js"></script>
+  <script type="text/javascript" charset="utf-8" src="js/main.js"></script>
+
+  <title>Facebook</title>
+
+
+  <style type="text/css" media="all">
+    #head {
+      position: fixed;
+      max-width: inherit;
+      z-index: 998;
+    }
+
+    #main {
+      position: relative;
+    }
+
+    #content {
+      width: 100%;
+      float: left;
+      position: relative;
+    }
+
+    #sidebar {
+      width: 30%;
+      /* float: right; */
+      right: 0;
+      overflow: scroll;
+      position: absolute;
+      height: 800px;
+    }
+
+    #sidebar img {
+      display: block;
+    }
+
+    #messages {
+      box-shadow: 0px 0px 20px rgba(0, 0, 0, .3);
+      right: 20px;
+      bottom: 0;
+      z-index: 999;
+      position: fixed;
+      width: 300px;
+      height: 300px;
+      background: url(images/Message_Box.jpg);
+      background-size: cover;
+      display: none;
+    }
+
+    #messages img {
+      display: none;
+      width: 98%;
+      margin: 1%;
+      /* margin: 20px; */
+      text-align: center;
+      /* display: block; */
+    }
+
+    #inner-messages {
+      width: 100%;
+      height: 100%;
+      margin-top: 40px;
+      overflow: scroll;
+    }
+
+    #message-close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 30px;
+      height: 30px;
+      display: block;
+    }
+
+    #banner1 {
+      position: fixed;
+      bottom: -1000px;
+      max-width: 800px;
+    }
+
+    #banner1 img {
+      width: 100%;
+    }
+
+    #didyouknow, #intropop {
+      left: 0;
+      top: 0;
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, .7);
+      z-index: 999;
+      text-align: center;
+      display: none;
+    }
+
+    #didyouknow img, #intropop img {
+      cursor: pointer;
+      width: 100%;
+      max-width: 800px;
+      margin: auto;
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    #banner2-1,
+    #banner2-2 {
+      top: 20px;
+      position: fixed;
+    }
+
+    #banner2-1 {
+      left: -1000px;
+    }
+
+    #banner2-2 {
+      right: -1000px;
+    }
+
+    #humans {
+      position: fixed;
+      z-index: 999;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      overflow: scroll;
+      background: rgba(0, 0, 0, .8);
+      text-align: center;
+      display: none;
+    }
+
+    #humans img {
+      cursor: pointer;
+      width: 100%;
+      max-width: 900px;
+      margin: auto;
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+      display: none;
+    }
+
+    .menu {
+      position: fixed;
+      display: none;
+    }
+
+    .menu img {
+      width: 100%;
+    }
+
+    #status-message {
+      position: absolute;
+      top: .4%;
+      left: 20.6%;
+      z-index: 998;
+      width: 48%;
+      height: .42%;
+      background: transparent;
+      border: none;
+      padding-top: 15px;
+      font-size:16px;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <div id="useless-widget" data-author="Daniel Kolitz" data-href="http://uselesspress.org/things/the-data-drive/"></div>
+  <script type="text/javascript" src="http://uselesspress.org/widget/widget.js" async></script>
+
+  <div id="main">
+    <div id="head">
+      <img src="images/lol_head.jpg" usemap="#headmap">
+      <map name="headmap">
+         <area shape="rect" coords="916, 16, 975, 43" href="http://uselesspress.org/things/the-data-drive/" />
+        <area shape="rect" coords="15, 6, 51, 37" href="#" />
+        <area shape="rect" coords="998, 15, 1028, 42" class="menu-item" href="#friend_requests" />
+        <area shape="rect" coords="1037, 16, 1069, 42" class="menu-item" href="#inbox" />
+        <area shape="rect" coords="1079, 20, 1109, 43" class="menu-item" href="#notifications" />
+      </map>
+    </div>
+    <div id="head_hidden" style="opacity: 0;">
+      <img src="images/lol_head.jpg">
+    </div>
+    <div id="content">
+      <textarea id="status-message"></textarea>
+      <img src="images/feed0.jpg" usemap="#map0">
+      <map name="map0">
+        <area shape="rect" coords="686, 138, 762, 169" href="#post" id="post-status-message" />
+        <area shape="rect" coords="215, 851, 748, 1354" href="the_next_web.html" />
+        <area shape="rect" coords="520, 726, 747, 752" href="#know" />
+        <area shape="rect" coords="223, 311, 743, 700" href="inc.html" />
+        <area shape="rect" coords="17, 192, 186, 442" href="zuckerhunt.html" />
+      </map>
+
+      <div id="shuffle">
+
+        <img src="images/feedb.jpg" usemap="#mapb">
+        <map name="mapb">
+          <area shape="rect" coords="584, 1359, 833, 1394" href="#know" />
+          <area shape="rect" coords="262, 888, 815, 1346" href="vulture.html" />
+          <area shape="rect" coords="259, 85, 820, 617" href="gluhh.html" />
+        </map>
+
+        <img src="images/feed1.jpg" usemap="#map1">
+        <map name="map1">
+          <area shape="rect" coords="538, 1373, 783, 1400" href="#know" />
+          <area shape="rect" coords="213, 895, 780, 1342" href="pitchfork.html" />
+          <area shape="rect" coords="218, 150, 785, 613" href="buck_open_letter.html" />
+        </map>
+        <img src="images/feedd.jpg" usemap="#mapD">
+        <map name="mapD">
+          <area shape="rect" coords="181, 743, 756, 1326" href="nytimes.html" />
+          <area shape="rect" coords="541, 615, 777, 646" href="#know" />
+          <area shape="rect" coords="193, 238, 740, 607" href="forbes.html" />
+        </map>
+        <img src="images/feede.jpg" usemap="#mapE">
+        <map name="mapE">
+          <area shape="rect" coords="531, 1612, 779, 1652" href="#know" />
+          <area shape="rect" coords="240, 62, 804, 546" href="buzzfeed.html" />
+        </map>
+        <img src="images/feedf.jpg" usemap="#mapF">
+        <map name="mapF">
+          <area shape="rect" coords="193, 793, 787, 1325" href="free_ebook.html" />
+          <area shape="rect" coords="536, 668, 775, 697" href="#know" />
+          <area shape="rect" coords="204, 193, 783, 634" href="defamer.html" />
+        </map>
+        <!-- <img src="images/Feed_G.jpeg" usemap="#mapG"> -->
+        <img src="images/feed6.jpg" usemap="#mapG">
+        <map name="mapG">
+          <area shape="rect" coords="243, 764, 812, 1325" href="techcrunch.html" />
+          <area shape="rect" coords="586, 633, 821, 663" href="#know" />
+          <area shape="rect" coords="250, 41, 828, 613" href="vox.html" />
+        </map>
+        <img src="images/feedh.jpg" usemap="#mapH">
+        <map name="mapH">
+          <area shape="rect" coords="227, 813, 805, 1348" href="google_scraps.html" />
+          <area shape="rect" coords="557, 643, 803, 677" href="#know" />
+          <area shape="rect" coords="220, 178, 792, 624" href="slate.html" />
+        </map>
+        <img src="images/feedi.jpg" usemap="#mapI">
+        <map name="mapI">
+          <area shape="rect" coords="575, 640, 781, 867" href="#h_4" />
+          <area shape="rect" coords="573, 404, 794, 625" href="#h_3" />
+          <area shape="rect" coords="571, 171, 806, 392" href="#h_2" />
+          <area shape="rect" coords="231, 172, 546, 850" href="#h_1" />
+        </map>
+        <img src="images/feed-time.jpg" usemap="#mapTime">
+        <map name="mapTime">
+          <area shape="rect" coords="229, 30, 820, 579" href="time.html" />
+        </map>
+        <img src="images/zuckerberg.gif">
+      </div>
+    </div>
+
+    <div id="sidebar">
+      <img src="images/sidebar_small.jpg" usemap="#sidebarmap" style="margin-bottom:200px">
+      <map name="sidebarmap">
+        <area shape="rect" coords="139, 1160, 366, 1192" href="advertise.html" />
+        <area shape="rect" coords="68, 1159, 122, 1184" href="q_a.html" />
+        <area shape="rect" coords="0, 1154, 56, 1179" href="http://uselesspress.org/things/the-data-drive/" />
+        <area shape="rect" coords="18, 959, 283, 1054" href="sausages.html" />
+        <area shape="rect" coords="17, 742, 374, 952" href="sausages.html" />
+        <area shape="rect" coords="24, 618, 301, 708" href="gluhh.html" />
+        <area shape="rect" coords="18, 411, 390, 610" href="gluhh.html" />
+        <area shape="rect" coords="297, 384, 375, 405" href="advertise.html" />
+        <area shape="rect" coords="32, 14, 364, 100" href="datadrive.html" />
+      </map>
+    </div>
+
+  </div>
+
+  <div id="messages">
+    <a href="#close" id="message-close"></a>
+    <div id="inner-messages">
+      <img src="images/Message_1.jpg">
+      <img src="images/Message_2.jpg">
+      <img src="images/Message_4.jpg">
+      <img src="images/Message_5.jpg">
+      <img src="images/Message_6.jpg">
+      <img src="images/Message_7.jpg">
+      <img src="images/Message_9.jpg">
+      <img src="images/Message_10.jpeg">
+      <img src="images/Message_11.jpg">
+      <img src="images/Message_12.jpg">
+      <img src="images/Message_13.jpg">
+      <img src="images/Message_14.jpg">
+      <img src="images/Message_17.jpg">
+      <br>
+      <br>
+    </div>
+  </div>
+
+  <div id="banner1">
+    <img src="images/bannerad1.jpg" alt="" usemap="#banner1map" />
+    <map name="banner1map">
+      <area shape="rect" coords="1021, 14, 1177, 66" href="#close" id="close1" />
+      <area shape="rect" coords="459, 126, 1071, 235" href="datadrive.html" />
+    </map>
+  </div>
+  <div id="banner2">
+    <img src="images/bannerad2.jpg" alt="" usemap="#banner2map" id="banner2-1" />
+    <img src="images/bannerad2.jpg" alt="" usemap="#banner2map" id="banner2-2" />
+    <map name="banner2map">
+      <area shape="rect" coords="13, 1074, 289, 1133" id="close2" href="#close" />
+      <area shape="rect" coords="13, 14, 293, 1057" href="datadrive.html" />
+    </map>
+  </div>
+
+  <div id="didyouknow">
+    <img src="images/DoYouKnow.jpg">
+  </div>
+
+  <div id="intropop">
+    <img src="images/intro.jpg">
+  </div>
+
+  <div id="humans">
+    <img src="images/Humans_1.jpg" id="h_1">
+    <img src="images/Humans_2.jpg" id="h_2">
+    <img src="images/Humans_3.jpg" id="h_4">
+    <img src="images/Humans_4.jpg" id="h_3" style="transform: none; top:0;">
+  </div>
+
+  <div id="inbox" class="menu" style="margin-left: -440px">
+    <img src="images/Message_Header.gif">
+  </div>
+
+  <div id="friend_requests" class="menu" style="margin-left: -410px">
+    <img src="images/Friend_Request_1.gif" usemap="#buckfriendmap" id="buckrequest">
+    <map name="buckfriendmap">
+      <area shape="poly" coords="367, 75, 367, 99, 482, 102, 482, 76" id="deletebuck" href="#delete" />
+      <area shape="poly" coords="290, 73, 287, 98, 359, 99, 359, 74" id="confirmbuck" href="#confirm" />
+    </map>
+    <img src="images/Friend_Request_2.gif" style="display:none;" id="buckconfirmed">
+  </div>
+
+  <div id="notifications" class="menu" style="margin-left: -480px;">
+    <img src="images/notifications.gif">
+  </div>
+
+  <script type="text/javascript" charset="utf-8">
+    $(function() {
+      // shuffleImages();
+
+      var stickyTop, stickyLeft, stickyW, stickyH;
+
+
+      function getDims() {
+        stickyTop = $('#sidebar').offset().top;
+        stickyLeft = $('#sidebar').offset().left;
+        stickyW = $('#sidebar').width();
+        stickyH = $('#sidebar').height();
+      }
+
+      function setPos() {
+        var windowTop = $(window).scrollTop(); // returns number
+
+        if (stickyTop < windowTop) {
+          $('#sidebar').css({
+            position: 'fixed',
+            top: stickyTop,
+            width: stickyW,
+            left: stickyLeft,
+            height: '100%',
+          });
+        } else {
+          $('#sidebar').css({
+            'position': 'absolute',
+            left: 'auto',
+            right: 0,
+            top: 'auto',
+            height: '800px'
+          });
+        }
+      }
+
+      getDims();
+      setPos();
+
+      $(window).on('resize', function() {
+        $('#sidebar').css('width', '30%');
+        getDims();
+        setPos();
+      });
+
+
+      $(window).scroll(function() {
+        setPos();
+      });
+
+      function startTheThing() {
+        showMessages();
+        setTimeout(function() {
+          $('#banner1').animate({
+            bottom: 0
+          }, 3000);
+        }, 1000);
+
+      }
+
+
+      $('#close1').click(function(e) {
+        e.preventDefault();
+        $('#banner1').hide();
+        $('#banner2-1, #banner2-2').css({
+          height: $(window).height() - 100
+        });
+        $('map[name="banner2map"]').imageMapResize();
+        $('#banner2-1').animate({
+          left: 0
+        }, 3000);
+        $('#banner2-2').animate({
+          right: 0
+        }, 3000);
+      });
+
+      $('#close2').click(function(e) {
+        e.preventDefault();
+        $('#banner2-1').hide();
+        $('#banner2-2').hide();
+      });
+
+      $('area[href="#know"]').click(function(e) {
+        e.preventDefault();
+        $('#didyouknow').fadeIn();
+      });
+
+      $('#didyouknow img').click(function(e) {
+        $('#didyouknow').hide();
+      });
+
+      $('#intropop').click(function(e) {
+        $('#intropop').hide();
+        startTheThing();
+      });
+
+      $('map[name="mapI"] area').click(function(e) {
+        e.preventDefault();
+        $('#humans').show();
+        $('#humans img').hide();
+        $($(this).attr('href')).show();
+
+      });
+
+      $('#humans').click(function() {
+        $('#humans').hide();
+
+      });
+
+      $('.menu-item').click(function(e) {
+        e.preventDefault();
+        var id = $(this).attr('href');
+        var is_visible = $(id).is(':visible');
+        $('.menu').hide();
+        if (!is_visible) $(id).css({
+          left: e.pageX,
+          top: 50
+        }).show();
+      });
+      $('#confirmbuck').click(function(e) {
+        e.preventDefault();
+        $('#buckrequest').hide();
+        $('#buckconfirmed').show();
+      });
+      $('#deletebuck').click(function(e) {
+        e.preventDefault();
+        $('#buckrequest').hide();
+      });
+
+      if (!Cookies.get('beenHereBefore')) {
+        Cookies.set('beenHereBefore', true, { expires: 7 });
+        $('#intropop').fadeIn();
+      } else {
+        startTheThing();
+      }
+
+      Parse.initialize("uF8nuaXihN3dxvRxnBlzkfXQmUtCza1zXFKDFSP6", "BkTfKPF7C7EbKOn26DsC3TJ6hbdKRZKyuoXOkhb8");
+      var StatusMessage = Parse.Object.extend("StatusMessage");
+      $('#post-status-message').click(function(e){
+        e.preventDefault();
+        if ($('#status-message').val().trim() != '') {
+          var statusMessage = new StatusMessage();
+          statusMessage.save({status: $('#status-message').val()}).then(function(object) {
+            $('#status-message').val('');
+            alert('Thanks!');
+          });
+        }
+
+      });
+      
+    });
+  </script>
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-65359720-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+
+</html>

@@ -1,0 +1,80 @@
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" href="style.css" type="text/css" />
+  <script type="text/javascript" charset="utf-8" src="js/jquery-2.1.4.min.js"></script>
+  <script type="text/javascript" charset="utf-8" src="js/imageMapResizer.min.js"></script>
+  <script type="text/javascript" charset="utf-8" src="js/main.js"></script>
+
+  <title>Inc</title>
+
+</head>
+
+<body>
+  <div id="main">
+    <img src="images/Buck_Advice_1.jpg" usemap="#map1">
+    <map name="map1">
+      <area shape="rect" coords="754, 404, 1178, 637" href="td_bank.html" />
+    </map>
+    <img src="images/Buck_Advice_2.jpg" usemap="#map2">
+    <map name="map2">
+      <area shape="poly" coords="82, 287, 83, 323, 172, 323, 171, 289" href="buck_open_letter.html" />
+      <area shape="poly" coords="568, 264, 568, 299, 772, 302, 769, 266" href="buck_open_letter.html" />
+    </map>
+    <img src="images/Buck_Advice_3.jpg">
+    <div id="adtailor" style="display:none">
+      <div class="img-holder">
+        <img src="images/adtailor_1.jpg" id="ad1" usemap="#admap" />
+        <div class="adindicator" id="one" style="top: 140px; left: 20px;"></div>
+        <div class="adindicator" id="two" style="top: 200px; left: 20px;"></div>
+        <div class="adindicator" id="three" style="top: 290px; left: 20px;"></div>
+        <map name="admap" id="admap">
+          <area shape="rect" coords="100, 443, 963, 504" class="adquestion" href="#three" />
+          <area shape="rect" coords="106, 317, 953, 397" class="adquestion" href="#two" />
+          <area shape="rect" coords="98, 211, 961, 276" class="adquestion" href="#one" />
+          <area shape="rect" coords="794, 525, 968, 573" href="#submit" id="submit" />
+        </map>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" charset="utf-8">
+    $('.adquestion').click(function(e) {
+      e.preventDefault();
+      $('.adindicator').removeClass('selected');
+      console.log($(this).attr('href'));
+      $($(this).attr('href')).addClass('selected');
+
+    });
+
+    $('#submit').click(function(e) {
+      e.preventDefault();
+      $('#adtailor').hide();
+    });
+
+    $('.quiz').click(function(e) {
+      e.preventDefault();
+      $('#quiz').hide();
+      $('#results').show();
+
+    });
+    setTimeout(function() {
+      $('#adtailor').fadeIn(function() {
+
+        $('#admap').imageMapResize();
+      });
+    }, 2000)
+  </script>
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-65359720-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+
+</html>

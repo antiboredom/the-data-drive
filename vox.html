@@ -1,0 +1,140 @@
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" href="style.css" type="text/css" />
+  <script type="text/javascript" charset="utf-8" src="js/jquery-2.1.4.min.js"></script>
+  <script type="text/javascript" charset="utf-8" src="js/imageMapResizer.min.js"></script>
+  <script type="text/javascript" charset="utf-8" src="js/main.js"></script>
+
+  <title>VOX</title>
+
+  <style type="text/css" media="all">
+    #main {
+      background: url('images/zuckface2.jpg');
+      background-size: 100% auto;
+      background-position: center;
+      background-attachment: fixed;
+      overflow: auto;
+    }
+
+    #vox-holder {
+      margin-top: 20px;
+      opacity: .9;
+    }
+
+    #sidebar {
+      max-width: 20%;
+      margin-left: 5%;
+      float: left;
+    }
+
+    #slides {
+      max-width: 60%;
+      float: left;
+      margin-left: 5%;
+      overflow: hidden;
+    }
+
+    #inner-slides {
+      width: 10000px;
+    }
+
+    #slides img {
+      float: left;
+      margin-right: 100px;
+      cursor: pointer;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div id="main">
+    <img src="images/vox-header.jpg">
+    <div id="vox-holder">
+      <img src="images/vox-sidebar.gif" id="sidebar" usemap="#map">
+      <map name="map">
+        <area class="nav" data-s="0" shape="rect" coords="45, 76, 247, 155" href="#one" />
+        <area class="nav" data-s="1" shape="rect" coords="48, 186, 274, 403" href="#two" />
+        <area class="nav" data-s="2" shape="rect" coords="51, 428, 332, 566" href="#three" />
+        <area class="nav" data-s="3" shape="rect" coords="61, 592, 315, 770" href="#four" />
+        <area class="nav" data-s="5" shape="rect" coords="75, 943, 324, 1244" href="#six" />
+        <area class="nav" data-s="4" shape="rect" coords="74, 803, 311, 909" href="#five" />
+      </map>
+      <div id="slides">
+        <div id="inner-slides">
+          <img src="images/vox-slide-1.jpg">
+          <img src="images/vox-slide-2.jpg">
+          <img src="images/vox-slide-3.jpg">
+          <img src="images/vox-slide-4.jpg">
+          <img src="images/vox-slide-5.jpg">
+          <img src="images/vox-slide-6.jpg">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" charset="utf-8">
+    $(window).resize(function() {
+      $('#slides img').width($('#slides').width());
+    });
+
+    $('#slides img').width($('#slides').width());
+
+    $('#slides img').click(function(e) {
+      var parentOffset = $('#slides').offset();
+      var relX = e.pageX - parentOffset.left;
+      var relY = e.pageY - parentOffset.top;
+
+      if (relX > $('#slides').width() / 2) {
+        nextSlide();
+      } else {
+        prevSlide();
+      }
+    });
+
+    $('.nav').click(function(e) {
+      e.preventDefault();
+      gotoSlide($(this).data('s'));
+    });
+
+
+    var index = 0;
+
+    function gotoSlide(i) {
+      index = i;
+      var margin = index * parseInt($('#slides img').css('margin-right'));
+      $('#slides').animate({
+        scrollLeft: $('#slides').width() * index + margin
+      }, 500);
+      $('#main').stop().animate({
+        backgroundSize: 100 + i * i * i * 2 + '%'
+      }, 800);
+    }
+
+    function nextSlide() {
+      index++;
+      if (index >= $('#slides img').length) index = 0;
+      gotoSlide(index);
+    }
+
+    function prevSlide() {
+      index--;
+      if (index < 0) index = $('#slides img').length - 1;
+      gotoSlide(index);
+    }
+  </script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-65359720-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+
+</html>

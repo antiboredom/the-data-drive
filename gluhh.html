@@ -1,0 +1,155 @@
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" href="style.css" type="text/css" />
+  <script type="text/javascript" charset="utf-8" src="js/jquery-2.1.4.min.js"></script>
+  <script type="text/javascript" charset="utf-8" src="js/imageMapResizer.min.js"></script>
+  <script type="text/javascript" charset="utf-8" src="js/main.js"></script>
+
+  <title>Gluhh</title>
+  <style type="text/css" media="all">
+    #age-check {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      background: #fff;
+      text-align: center;
+      display: none;
+      z-index: 2;
+    }
+
+    #age-check img {
+      width: 100%;
+      max-width: 1000px;
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+      display: none;
+    }
+
+    #popup1,
+    #popup2 {
+      max-width: 600px !important;
+    }
+
+    #redirect {
+      z-index: 999;
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      background: white;
+      text-align: center;
+      display: none;
+    }
+
+    #redirect img {
+      width: 100%;
+      max-width: 500px;
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  </style>
+
+</head>
+
+<body>
+  <!-- <div id="main">  -->
+  <img style="width:100%" src="images/Gluhh_1.jpg" usemap="#map1">
+  <map name="map1">
+    <area shape="rect" coords="283, 607, 918, 695" href="#login" />
+    <area shape="rect" coords="998, 10, 1185, 95" href="#signup" />
+  </map>
+  <img style="width:100%" src="images/Gluhh_2.jpg" usemap="#map2">
+  <map name="map2">
+    <area shape="rect" coords="945, 53, 1137, 146" href="#signup" />
+  </map>
+  <img style="width:100%" src="images/Gluhh_3.jpg" usemap="#map3">
+  <map name="map3">
+    <area shape="rect" coords="943, 1, 1150, 88" href="#signup" />
+  </map>
+
+
+
+  <div id="age-check">
+
+    <img src="images/Gluhh_Pop-Up_1.jpg" alt="" usemap="#popupmap1" id="popup1" />
+    <map name="popupmap1">
+      <area shape="rect" coords="450, 188, 576, 226" href="#no" class="leave" />
+      <area shape="rect" coords="315, 189, 437, 226" href="#yes" data-show="popup2" />
+    </map>
+
+    <img src="images/Gluhh_Pop-Up_2.jpg" alt="" usemap="#popupmap2" id="popup2" />
+    <map name="popupmap2">
+      <area shape="poly" coords="445, 194, 444, 228, 562, 231, 561, 198" href="#no" class="leave" />
+      <area shape="poly" coords="310, 193, 311, 224, 428, 227, 428, 196" href="#yes" data-show="quiz1" />
+    </map>
+
+
+    <img src="images/Gluhh_Quiz_1.jpg" alt="" usemap="#quizmap1" id="quiz1" />
+    <map name="quizmap1">
+      <area shape="rect" coords="93, 249, 176, 299" href="#no" class="leave" />
+      <area shape="rect" coords="90, 150, 246, 214" href="#yes" data-show="quiz2" />
+    </map>
+
+
+    <img src="images/Gluhh_Quiz_2.jpg" alt="" usemap="#quizmap2" id="quiz2" />
+    <map name="quizmap2">
+      <area shape="rect" coords="81, 340, 1144, 547" href="#yes" class="leave" />
+      <area shape="rect" coords="84, 239, 1134, 306" href="#no2" class="leave" />
+      <area shape="rect" coords="85, 154, 1154, 218" href="#no1" class="leave" />
+    </map>
+  </div>
+
+
+  <div id="redirect">
+    <img src="images/Gluhh_Redirect.jpg">
+  </div>
+
+  <script type="text/javascript" charset="utf-8">
+    $('#age-check area').click(function(e) {
+      var toShow = $(this).data('show');
+      if (toShow) {
+        $('#age-check img').hide();
+        $('#' + toShow).show();
+        $('map').imageMapResize();
+      }
+      e.preventDefault();
+    });
+    $('area[href="#signup"], area[href="#login"]').click(function(e) {
+      e.preventDefault();
+      $('#age-check').show();
+      $('#popup1').show();
+      $('map').imageMapResize();
+    });
+
+    $('.leave').click(function(e) {
+      e.preventDefault();
+      redirect();
+    });
+
+    function redirect() {
+      $('#redirect').show()
+      setTimeout(function() {
+        window.location = "index.html";
+      }, 2000);
+    }
+  </script>
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-65359720-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+
+</html>

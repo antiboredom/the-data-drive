@@ -1,0 +1,93 @@
+<html>
+
+<head>
+  <title></title>
+  <link rel="stylesheet" href="style.css" type="text/css" />
+  <script type="text/javascript" charset="utf-8" src="js/jquery-2.1.4.min.js"></script>
+  <script type="text/javascript" charset="utf-8" src="js/imageMapResizer.min.js"></script>
+  <script type="text/javascript" charset="utf-8" src="js/main.js"></script>
+  <script type="text/javascript" charset="utf-8">
+    $(document).ready(function()
+    {
+      // shuffleImages();
+    });
+  </script>
+</head>
+
+<body>
+  <div id="main">
+    <!-- <img src="images/sidebar.jpg" style="position:fixed;max&#45;width:300px;right:18%; top:7%;"> -->
+    <img src="images/Feed_Main_Page.jpeg" usemap="#mainmap">
+    <map name="mainmap">
+      <area shape="rect" coords="476, 2019, 1658, 3196" href="where_zuckerberg.html" />
+      <area shape="rect" coords="496, 787, 1678, 1687" href="inc.html" />
+      <area shape="rect" coords="1854, 2115, 2318, 2233" href="donate.html" />
+      <area shape="rect" coords="1759, 1488, 2430, 2068" href="sausages.html" />
+      <area shape="rect" coords="1767, 879, 2450, 1436" href="gluhh.html" />
+      <area shape="rect" coords="2278, 831, 2430, 871" href="create_ad.html" />
+      <area shape="rect" coords="1795, 748, 2386, 791" href="see_more.html" />
+      <area shape="rect" coords="1775, 643, 2432, 737" href="viral_photo.html" />
+      <area shape="rect" coords="1779, 491, 2423, 631" href="facebook_relaunch.html" />
+      <area shape="rect" coords="1777, 370, 2432, 480" href="zuck_concept.html" />
+      <area shape="rect" coords="1790, 146, 2404, 308" href="datadrive.html" />
+      <area shape="rect" coords="43, 545, 415, 1107" href="where_zuckerberg.html" />
+    </map>
+    <div id="shuffle">
+      <img src="images/Feed_A.jpeg" usemap="#mapA">
+      <map name="mapA">
+        <area shape="rect" coords="432, 1839, 1594, 2782" href="pitchfork.html" />
+        <area shape="rect" coords="431, 297, 1631, 1270" href="buck_open_letter.html" />
+      </map>
+      <img src="images/Feed_B.jpeg" usemap="#mapB">
+      <map name="mapB">
+        <area shape="rect" coords="530, 177, 1712, 1264" href="gluhh.html" />
+        <area shape="rect" coords="511, 1813, 1673, 2779" href="the_hendersons.html" />
+      </map>
+      <img src="images/Feed_D.jpeg" usemap="#mapD">
+      <map name="mapD">
+        <area shape="rect" coords="382, 1521, 1543, 2724" href="nytimes.html" />
+        <area shape="rect" coords="399, 500, 1559, 1251" href="forbes.html" />
+      </map>
+      <img src="images/Feed_E.jpeg" usemap="#mapE">
+      <map name="mapE">
+        <area shape="rect" coords="489, 16, 1646, 1190" href="buzzfeed.html" />
+      </map>
+      <img src="images/Feed_F.jpeg" usemap="#mapF">
+      <map name="mapF">
+        <area shape="rect" coords="399, 1640, 1629, 2752" href="free_ebook.html" />
+        <area shape="rect" coords="408, 388, 1633, 1347" href="defamer.html" />
+      </map>
+      <img src="images/Feed_G.jpeg" usemap="#mapG">
+      <map name="mapG">
+        <area shape="rect" coords="495, 1570, 1725, 2758" href="techcrunch.html" />
+        <area shape="rect" coords="535, 513, 1684, 1265" href="vox.html" />
+      </map>
+      <img src="images/Feed_H.jpeg" usemap="#mapH">
+      <map name="mapH">
+        <area shape="rect" coords="467, 1827, 1665, 2783" href="google_scraps.html" />
+        <area shape="rect" coords="448, 381, 1659, 1306" href="slate.html" />
+      </map>
+      <img src="images/Feed_I.jpeg" usemap="#mapI">
+      <map name="mapI">
+        <area shape="poly" coords="612, 154, 614, 236, 718, 237, 717, 193, 1610, 190, 1607, 145"
+        href="humans_of_ny.html" />
+        <area shape="rect" coords="468, 341, 1631, 1788" href="humans_of_ny.html" />
+      </map>
+    </div>
+
+    <!-- <div style="position:relative;"> -->
+    <!--   <img src="images/Feed_Main_Page.jpeg" style="position:absolute;" usemap="#mainmap"> -->
+    <!--   <map name="mainmap"> -->
+    <!--     <area shape="rect" coords="1775, 739, 2405, 805" href="trending.html" /> -->
+    <!--   </map> -->
+    <!--   <div style="position:absolute;z&#45;index:1;max&#45;width: 52%;overflow:scroll;height: 100vh;left: 18%;margin&#45;top:5%;"> -->
+    <!--     <img src="images/Feed_0.jpg"> -->
+    <!--     <img src="images/Feed_1.jpg"> -->
+    <!--     <img src="images/Feed_2.jpg"> -->
+    <!--   </div> -->
+    <!-- </div> -->
+
+  </div>
+</body>
+
+</html>

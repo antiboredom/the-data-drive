@@ -1,0 +1,98 @@
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" href="style.css" type="text/css" />
+  <script type="text/javascript" charset="utf-8" src="js/jquery-2.1.4.min.js"></script>
+  <script type="text/javascript" charset="utf-8" src="js/imageMapResizer.min.js"></script>
+  <script type="text/javascript" charset="utf-8" src="js/main.js"></script>
+
+  <title>Slate Magazine</title>
+  <style type="text/css" media="all">
+    #text-holder {
+      width: 58%;
+      padding-bottom: 100px;
+      margin-bottom: 100px;
+      position: absolute;
+      top: 12%;
+      left: 2.5%;
+      transform: rotate(1deg);
+    }
+
+    #text {
+      font: 20px sans-serif;
+      line-height: 150%;
+    }
+
+    #main {
+      position: relative;
+    }
+
+    #caroline {
+      width: 50% !important;
+      padding-right: 20px;
+      float: left;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div id="main">
+    <img src="images/Slate-Background-3.jpg" usemap="#map1">
+    <map name="map1">
+      <area shape="rect" coords="781, 712, 1174, 784" href="forbes.html" />
+      <area shape="rect" coords="788, 502, 1176, 629" href="vulture.html" />
+      <area shape="rect" coords="796, 365, 1178, 453" href="inc.html" />
+      <area shape="rect" coords="797, 210, 1135, 314" href="zuckerhunt.html" />
+    </map>
+    <div id="text-holder">
+      <div id="text"></div>
+    </div>
+  </div>
+  <script type="text/javascript" charset="utf-8">
+    var text =
+      "[Editor's note: In an effort to get you our opinions as fast as possible, this piece is being published LIVE!]|It's a cliche, I know, but so be it: I have an MFA.|Here was my plan: By day I would add to the din, use the one brain and the one life granted me to react indignantly and at length to the slip-ups and appropriations of the powerful and/or internet famous, for which tart and incisive critiques I'd earn a following and a salary and a tangential connection to an industry I cared about. Nights, I'd do the real writing.|Sure, laugh. But I'm young yet. Younger, at least, than Derek. Derek was hired from a lesser-known AOL property, and I'm told he just about re-wrote the rules of conventional homepage carousel design during his time there.The real-time opinion pieces, those were his innovation, announced at our weekly pitch meeting. What came next I prophesied with perfect clarity. The old guard resigned, leaked their letter to the press, spoke solemnly of journalism's demise on the few talk shows still granting whole yearly minutes to the fate of full sentences.|Myself, I made a new friend. That old stereotype--the talkative, company-starved dealer, the tolerant customer desperate to get his drugs and get out--it's vulgar. Reductive. With Gabriel and I, that dynamic did not obtain. I looked forward to his long, free-associative discourses on Hasidic lingerie and crack in the 1980s, looked forward to them almost as much as what came after, the speck of a pill ground to smaller specks atop the tight plastic encasing my library copy of Bleak House (unread and so long overdue I've been getting letters from Midwestern collection agencies, plus more recently calls, either two or three depending on how you count the one from an unlisted number at three in the morning last week; he didn't speak, simply panted--a retro-perv without wi-fi, I wondered?--but no, the tears gave him away, it was Donald, the Collections man, who'd called me earlier that day, here this time on unofficial business; for a half hour we stayed like that, Donald whinnying on speakerphone, me waiting distantly, distractedly, as if the old man's spasms were some new form of Muzak, as if at any moment a bright voice might come on the line, \"how can I help you,\" \"you can annihilate the take-economy and plant in its place a system better-equipped to wring joy out of the limited time each of us is granted on this earth.\" I slept ten minutes that night, dreamt of dogfighting in Turkey, and the next morning was widely commended by my peers for condemning the sexual politics of Netflix's new show The Hendersons) followed of course by the check ripped from its book and rolled. Not ecstasy, exactly. But better than drinking.|There will be consequences for sayings this, I know. Maybe it'll be like that Black Mirror episode: This rant will play well and I'll get a nice gig as the prison's resident doomsayer, soothing the inmates with my narcotizing rage. More likely I'll be asked to gather my things within the hour. My Tweetdeck is open; already I can see my peers testing the waters, waiting for rough consensus to form before joking in line with it or daringly taking the other view. But tell me: Who will analyze this moment when I'm gone?|Editor's Note: Sasha will! Sasha, if you're reading this, congratulations: You're officially Slate's new assistant culture editor!";
+
+    function randint(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+    var index = 0;
+    var spd = [50, 150];
+    //$('#text').html(text)
+    typer();
+
+    function typer() {
+      var t = $('#text').html();
+
+      if (text[index] == '|') {
+        t += '<br><br>'
+      } else {
+        t += text[index];
+      }
+
+      if (t.match(/Nights, I'd do the real writing\.$/)) {
+        t += '<img src="images/caroline.jpg" id="caroline">';
+      }
+      $('#text').html(t);
+      index++;
+      if (index < text.length) {
+        setTimeout(typer, randint(spd[0], spd[1]));
+      }
+
+    }
+  </script>
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-65359720-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+
+</html>

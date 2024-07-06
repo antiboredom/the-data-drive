@@ -1,0 +1,100 @@
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" href="style.css" type="text/css" />
+  <script type="text/javascript" charset="utf-8" src="js/jquery-2.1.4.min.js"></script>
+  <script type="text/javascript" charset="utf-8" src="js/imageMapResizer.min.js"></script>
+  <script type="text/javascript" charset="utf-8" src="js/main.js"></script>
+
+  <title>Jaromir's Sausage Enclosure</title>
+  <style type="text/css" media="all">
+    #app {
+      /* width: 100%; */
+      /* height: 600px; */
+      text-align: center;
+      position: relative;
+    }
+
+    #bg {
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: 0;
+    }
+
+    #qr {
+      z-index: 1;
+      left: 35%;
+      margin-top: 15%;
+      position: absolute;
+      /* max-width: 300px; */
+      width: 30% !important;
+    }
+
+    #slideshow {
+      overflow: hidden;
+    }
+
+    #slide-holder {
+      width: 5500px;
+    }
+
+    .slide {
+      float: left;
+      max-width: 1100px;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div id="main">
+    <img src="images/saus_1_head.jpg">
+    <div id="slideshow">
+      <div id="slide-holder">
+        <img src="images/saus_slide1.jpg" class="slide">
+        <img src="images/saus_slide2.jpg" class="slide">
+        <img src="images/saus_slide3.jpg" class="slide">
+        <img src="images/saus_slide4.jpg" class="slide">
+        <img src="images/saus_slide5.jpg" class="slide">
+      </div>
+    </div>
+    <img src="images/saus_1_foot.jpg">
+
+    <div id="app">
+      <img src="images/Deep_Web_Front_2.jpg" id="bg" usemap="#map">
+      <map name="map">
+        <area shape="poly" coords="165, 272, 101, 279, 85, 303, 61, 366, 57, 423, 70, 494, 103, 581, 148, 648, 191, 661, 202, 662, 200, 637, 191, 602, 161, 529, 149, 498, 142, 448, 139, 382, 170, 311, 170, 290" href="deep_web_entry.html" />
+      </map>
+      <img src="images/qrcode.png" id="qr">
+    </div>
+  </div>
+  <script type="text/javascript" charset="utf-8">
+    var index = 1;
+    setInterval(function() {
+      $('#slideshow').animate({
+        scrollLeft: $('#main').width() * index
+      }, 500);
+      index++;
+      if (index >= $('.slide').length) index = 0;
+    }, 5000);
+
+    $(window).resize(function() {
+      $('.slide').width($('#main').width());
+
+    });
+  </script>
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-65359720-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+
+</html>
