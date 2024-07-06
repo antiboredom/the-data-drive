@@ -9,27 +9,26 @@
   <script type="text/javascript" charset="utf-8" src="js/main.js"></script>
 
   <title>BuzzFeed</title>
-
 </head>
 
 <body>
   <div id="main">
-    <img src="images/Madden_1.jpg">
-    <img src="images/Madden_2.jpg">
-    <img src="images/Madden_3.jpg">
-    <img src="images/Madden_4.jpg" id="quiz" usemap="#map">
+    <img src="images/Madden_1.jpg" />
+    <img src="images/Madden_2.jpg" />
+    <img src="images/Madden_3.jpg" />
+    <img src="images/Madden_4.jpg" id="quiz" usemap="#map" />
     <map name="map">
       <area class="quiz" shape="rect" coords="15, 428, 1047, 489" href="no_madden.html" />
       <area class="quiz" shape="rect" coords="14, 336, 988, 393" href="joel.html" />
       <area class="quiz" shape="rect" coords="15, 241, 1005, 302" href="benji.html" />
     </map>
-    <img src="images/Madden_5.jpg" id="results" style="display:none;">
-    <div id="adtailor" style="display:none">
+    <img src="images/Madden_5.jpg" id="results" style="display: none" />
+    <div id="adtailor" style="display: none">
       <div class="img-holder">
         <img src="images/adtailor_2.jpg" alt="" usemap="#admap" />
-        <div class="adindicator" id="one" style="top: 150px; left: 40px;"></div>
-        <div class="adindicator" id="two" style="top: 200px; left: 40px;"></div>
-        <div class="adindicator" id="three" style="top: 300px; left: 40px;"></div>
+        <div class="adindicator" id="one" style="top: 150px; left: 40px"></div>
+        <div class="adindicator" id="two" style="top: 200px; left: 40px"></div>
+        <div class="adindicator" id="three" style="top: 300px; left: 40px"></div>
         <map name="admap" id="admap">
           <area shape="poly" coords="785, 707, 786, 754, 946, 748, 943, 702" id="submit" href="#submit" />
           <area shape="poly" class="adquestion" coords="118, 395, 121, 661, 951, 654, 946, 366" href="#three" />
@@ -40,41 +39,29 @@
     </div>
   </div>
 
-
   <script type="text/javascript" charset="utf-8">
-    $('.adquestion').click(function(e) {
+    $(".adquestion").click(function (e) {
       e.preventDefault();
-      $('.adindicator').removeClass('selected');
-      $($(this).attr('href')).addClass('selected');
+      $(".adindicator").removeClass("selected");
+      $($(this).attr("href")).addClass("selected");
     });
 
-    $('#submit').click(function(e) {
+    $("#submit").click(function (e) {
       e.preventDefault();
-      $('#adtailor').hide();
+      $("#adtailor").hide();
     });
 
-    $('.quiz').click(function(e) {
+    $(".quiz").click(function (e) {
       e.preventDefault();
-      $('#quiz').hide();
-      $('#results').show();
-
+      $("#quiz").hide();
+      $("#results").show();
     });
-    setTimeout(function() {
-      $('#adtailor').fadeIn(function() {
-        $('#admap').imageMapResize();
+    setTimeout(function () {
+      $("#adtailor").fadeIn(function () {
+        $("#admap").imageMapResize();
       });
-    }, 2000)
+    }, 2000);
   </script>
-  <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-65359720-2', 'auto');
-  ga('send', 'pageview');
-
-</script>
 </body>
 
 </html>

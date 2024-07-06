@@ -11,7 +11,7 @@
 
   <style type="text/css" media="all">
     #main {
-      background: url('images/zuckface2.jpg');
+      background: url("images/zuckface2.jpg");
       background-size: 100% auto;
       background-position: center;
       background-attachment: fixed;
@@ -20,7 +20,7 @@
 
     #vox-holder {
       margin-top: 20px;
-      opacity: .9;
+      opacity: 0.9;
     }
 
     #sidebar {
@@ -46,14 +46,13 @@
       cursor: pointer;
     }
   </style>
-
 </head>
 
 <body>
   <div id="main">
-    <img src="images/vox-header.jpg">
+    <img src="images/vox-header.jpg" />
     <div id="vox-holder">
-      <img src="images/vox-sidebar.gif" id="sidebar" usemap="#map">
+      <img src="images/vox-sidebar.gif" id="sidebar" usemap="#map" />
       <map name="map">
         <area class="nav" data-s="0" shape="rect" coords="45, 76, 247, 155" href="#one" />
         <area class="nav" data-s="1" shape="rect" coords="48, 186, 274, 403" href="#two" />
@@ -64,77 +63,74 @@
       </map>
       <div id="slides">
         <div id="inner-slides">
-          <img src="images/vox-slide-1.jpg">
-          <img src="images/vox-slide-2.jpg">
-          <img src="images/vox-slide-3.jpg">
-          <img src="images/vox-slide-4.jpg">
-          <img src="images/vox-slide-5.jpg">
-          <img src="images/vox-slide-6.jpg">
+          <img src="images/vox-slide-1.jpg" />
+          <img src="images/vox-slide-2.jpg" />
+          <img src="images/vox-slide-3.jpg" />
+          <img src="images/vox-slide-4.jpg" />
+          <img src="images/vox-slide-5.jpg" />
+          <img src="images/vox-slide-6.jpg" />
         </div>
       </div>
     </div>
   </div>
 
   <script type="text/javascript" charset="utf-8">
-    $(window).resize(function() {
-      $('#slides img').width($('#slides').width());
+    $(window).resize(function () {
+      $("#slides img").width($("#slides").width());
     });
 
-    $('#slides img').width($('#slides').width());
+    $("#slides img").width($("#slides").width());
 
-    $('#slides img').click(function(e) {
-      var parentOffset = $('#slides').offset();
+    $("#slides img").click(function (e) {
+      var parentOffset = $("#slides").offset();
       var relX = e.pageX - parentOffset.left;
       var relY = e.pageY - parentOffset.top;
 
-      if (relX > $('#slides').width() / 2) {
+      if (relX > $("#slides").width() / 2) {
         nextSlide();
       } else {
         prevSlide();
       }
     });
 
-    $('.nav').click(function(e) {
+    $(".nav").click(function (e) {
       e.preventDefault();
-      gotoSlide($(this).data('s'));
+      gotoSlide($(this).data("s"));
     });
-
 
     var index = 0;
 
     function gotoSlide(i) {
       index = i;
-      var margin = index * parseInt($('#slides img').css('margin-right'));
-      $('#slides').animate({
-        scrollLeft: $('#slides').width() * index + margin
-      }, 500);
-      $('#main').stop().animate({
-        backgroundSize: 100 + i * i * i * 2 + '%'
-      }, 800);
+      var margin = index * parseInt($("#slides img").css("margin-right"));
+      $("#slides").animate(
+        {
+          scrollLeft: $("#slides").width() * index + margin,
+        },
+        500,
+      );
+      $("#main")
+        .stop()
+        .animate(
+          {
+            backgroundSize: 100 + i * i * i * 2 + "%",
+          },
+          800,
+        );
     }
 
     function nextSlide() {
       index++;
-      if (index >= $('#slides img').length) index = 0;
+      if (index >= $("#slides img").length) index = 0;
       gotoSlide(index);
     }
 
     function prevSlide() {
       index--;
-      if (index < 0) index = $('#slides img').length - 1;
+      if (index < 0) index = $("#slides img").length - 1;
       gotoSlide(index);
     }
   </script>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-65359720-2', 'auto');
-  ga('send', 'pageview');
-
-</script>
 </body>
 
 </html>

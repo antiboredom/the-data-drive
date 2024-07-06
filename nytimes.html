@@ -7,54 +7,40 @@
   <script type="text/javascript" charset="utf-8" src="js/imageMapResizer.min.js"></script>
   <script type="text/javascript" charset="utf-8" src="js/main.js"></script>
 
-
   <title>The New York Times</title>
-
 </head>
 
 <body>
   <div id="main">
     <div id="paywall">
-      <img src="images/NYTimes_Paywall_1.jpg">
-      <img src="images/NYTimes_Paywall_2.jpg" usemap="#map">
+      <img src="images/NYTimes_Paywall_1.jpg" />
+      <img src="images/NYTimes_Paywall_2.jpg" usemap="#map" />
       <map name="map">
         <area shape="rect" coords="346, 1346, 459, 1382" class="fire" href="#bill" />
         <area shape="rect" coords="344, 1281, 458, 1319" class="fire" href="#ryan" />
         <area shape="rect" coords="346, 1214, 458, 1256" class="fire" href="#linda" />
       </map>
     </div>
-    <img src="images/Times_Article.jpg" id="article">
+    <img src="images/Times_Article.jpg" id="article" />
   </div>
   <script type="text/javascript" charset="utf-8">
-    $(document).ready(function() {
-
-      $('#paywall').hide();
-      $('.fire').on('click', function(e) {
+    $(document).ready(function () {
+      $("#paywall").hide();
+      $(".fire").on("click", function (e) {
         e.preventDefault();
-        $('#paywall').fadeOut();
-        $('#article').show();
+        $("#paywall").fadeOut();
+        $("#article").show();
       });
-      $('#article').on('load', function() {
-        setTimeout(function() {
-          $('#paywall').fadeIn(function() {
-
-            $('map').imageMapResize();
+      $("#article").on("load", function () {
+        setTimeout(function () {
+          $("#paywall").fadeIn(function () {
+            $("map").imageMapResize();
           });
-          $('#article').hide();
+          $("#article").hide();
         }, 2000);
       });
     });
   </script>
-  <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-65359720-2', 'auto');
-  ga('send', 'pageview');
-
-</script>
 </body>
 
 </html>

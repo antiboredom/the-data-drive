@@ -5,7 +5,6 @@
   <link rel="stylesheet" href="style.css" type="text/css" />
   <script type="text/javascript" charset="utf-8" src="js/jquery-2.1.4.min.js"></script>
   <script type="text/javascript" charset="utf-8" src="js/imageMapResizer.min.js"></script>
-  <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.5.0.min.js"></script>
   <script type="text/javascript" charset="utf-8" src="js/main.js"></script>
 
   <title>Join the Data Drive</title>
@@ -16,23 +15,23 @@
       margin-top: 20px;
       /* float: right; */
     }
-    #give-us-your-info-please textarea{
+
+    #give-us-your-info-please textarea {
       width: 100%;
       height: 60px;
       margin-bottom: 5px;
       display: block;
-      background: rgba(255, 255, 255, .6);
+      background: rgba(255, 255, 255, 0.6);
       border: 2px solid #666;
       font-size: 18px;
     }
-    #give-us-your-info-please input{
-      font-size: 18px;
-      background: rgba(255, 255, 255, .6);
-      border: 2px solid #666;
-    }
-    
-  </style>
 
+    #give-us-your-info-please input {
+      font-size: 18px;
+      background: rgba(255, 255, 255, 0.6);
+      border: 2px solid #666;
+    }
+  </style>
 </head>
 
 <body>
@@ -53,31 +52,11 @@
     <img src="images/donate3.jpg" alt="" usemap="#map" />
   </div>
   <script>
-
-  Parse.initialize("uF8nuaXihN3dxvRxnBlzkfXQmUtCza1zXFKDFSP6", "BkTfKPF7C7EbKOn26DsC3TJ6hbdKRZKyuoXOkhb8");
-  var PersonalInfo = Parse.Object.extend("PersonalInfo");
-  $('#give-us-your-info-please').submit(function(e){
-    e.preventDefault();
-    if ($('#personal-info').val().trim() != '') {
-      var personalInfo = new PersonalInfo();
-      personalInfo.save({info: $('#personal-info').val()}).then(function(object) {
-        $('#personal-info').val('');
-        alert('Thanks!');
-      });
-    }
-
-  });
-
-
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-65359720-2', 'auto');
-  ga('send', 'pageview');
-
-</script>
+    $("#give-us-your-info-please").submit(function (e) {
+      e.preventDefault();
+      alert("Thanks!");
+    });
+  </script>
 </body>
 
 </html>
